@@ -1,10 +1,3 @@
-secrets.yml
-
 node_modules
 .DS_Store
-
 .serverless
-.env*
-!.env.example
-*.pem
-migrations
