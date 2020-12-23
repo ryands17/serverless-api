@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Serverless</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/league.css" id="theme" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- talk slide -->
+        <section><h1>Introduction to Serverless with AWS</h1></section>
+
+        <!-- intro -->
+        <section>
+          <h2>Hello everyone 👋</h2>
+          <div>I'm a Developer Success Engineer @ Prisma</div>
+        </section>
+
+        <!-- topics to be covered -->
+        <section>
+          <h2>Topics for today</h2>
+          <ul>
+            <li class="fragment fade-up">Servers and the cloud</li>
+            <li class="fragment fade-up">What is Serverless</li>
+            <li class="fragment fade-up">
+              Comparision with traditional servers
+            </li>
+            <li class="fragment fade-up">Where Serverless really shines</li>
+            <li class="fragment fade-up">What is AWS Lambda</li>
+            <li class="fragment fade-up">A simple demo</li>
+          </ul>
+        </section>
+
+        <!-- servers and the cloud -->
+        <section>
+          <section>
+            <h2>Where we started</h2>
+            <p class="fragment fade-up">On-Premise servers</p>
+            <p class="fragment fade-up">Home or Office</p>
+          </section>
+
+          <section>
+            <h2>What actually is the Cloud</h2>
+            <img
+              class="fragment fade-up"
+              src="./assets/what-is-the-cloud.jpg"
+              alt="What is the cloud actually?"
+            />
+          </section>
+
+          <section>
+            <h2>Traditional Servers</h2>
+            <ul>
+              <li class="fragment fade-up">
+                Allow you to choose the server (size, memory, disk space etc.)
+              </li>
+              <li class="fragment fade-up">
+                Pay for the amount of hours it's running (even if not being
+                used)
+              </li>
+              <li class="fragment fade-up">AWS EC2, DigitalOcean, Heroku</li>
+              <li class="fragment fade-up">
+                Can be scaled up in case of higher requests
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Selecting an instance (AWS EC2)</h2>
+            <img
+              src="./assets/choosing-an-instance.png"
+              alt="Choosing the instance type"
+            />
+          </section>
+        </section>
+
+        <!-- what is serverless -->
+        <section>
+          <section>
+            <h2>Enter Serverless 😎</h2>
+            <ul>
+              <li class="fragment fade-up">
+                A way to run your code without manually provisioning servers
+              </li>
+              <li class="fragment fade-up">
+                Your main focus is shipping code and not server management
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>AWS Lambda</h2>
+            <blockquote
+              class="fragment fade-up"
+              cite="https://aws.amazon.com/lambda/"
+            >
+              &ldquo;AWS Lambda is a serverless compute service that lets you
+              run code without provisioning or managing servers, creating
+              workload-aware cluster scaling logic, maintaining event
+              integrations, or managing runtimes. With Lambda, you can run code
+              for virtually any type of application or backend service - all
+              with zero administration&rdquo;
+            </blockquote>
+          </section>
+        </section>
+
+        <!-- Comparision with traditional servers -->
+        <section>
+          <h2>Comparisions with our old friend</h2>
+          <ul>
+            <li class="fragment fade-up">Deployment is easier</li>
+            <li class="fragment fade-up">Scaling is easier</li>
+            <li class="fragment fade-up">Automated security</li>
+            <li class="fragment fade-up">
+              Support for all famous runtimes (Node, Python, Go etc.)
+            </li>
+            <li class="fragment fade-up">
+              Ability to run containers (new arrival)
+            </li>
+          </ul>
+        </section>
+
+        <!-- the end -->
+        <section>
+          <h1>Thank you :)</h1>
+          <h3>Reach me @</h3>
+          <ul>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/ryan-dsouza-880522125/"
+                rel="noopener noreferrer"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/ryands1701"
+                rel="noopener noreferrer"
+                target="_blank"
+                >Twitter</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/ryands17/"
+                rel="noopener noreferrer"
+                target="_blank"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://dev.to/ryands17"
+                rel="noopener noreferrer"
+                target="_blank"
+                >Dev.to</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <!-- <script src="plugin/markdown/markdown.js"></script> -->
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealHighlight, RevealNotes],
+      })
+    </script>
+  </body>
+</html>
