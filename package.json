@@ -1,0 +1,26 @@
+{
+  "name": "serverless-api",
+  "version": "1.0.0",
+  "description": "A basic API using Fastify built with the Serverless framework",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sls offline",
+    "deploy": "sls deploy"
+  },
+  "keywords": [],
+  "author": "Ryan",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "serverless": "^2.16.1",
+    "serverless-offline": "^6.8.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "fastify": "^3.9.2",
+    "serverless-http": "2.6.0"
+  }
+}
