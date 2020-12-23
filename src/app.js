@@ -3,7 +3,7 @@ const serverless = require('serverless-http')
 
 const app = fastify()
 
-app.get('/', (req, res) => {
+app.get('/main', (req, res) => {
   res.send({
     success: true,
   })
