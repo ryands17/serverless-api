@@ -90,7 +90,7 @@
           </section>
         </section>
 
-        <!-- what is serverless -->
+        <!-- What is serverless -->
         <section>
           <section>
             <h2>Enter Serverless 😎</h2>
@@ -125,15 +125,130 @@
           <h2>Comparisions with our old friend</h2>
           <ul>
             <li class="fragment fade-up">Deployment is easier</li>
-            <li class="fragment fade-up">Scaling is easier</li>
+            <li class="fragment fade-up">Scaling doesn't need effort</li>
             <li class="fragment fade-up">Automated security</li>
+            <li class="fragment fade-up">
+              Easy to set an execution and usage limit
+            </li>
             <li class="fragment fade-up">
               Support for all famous runtimes (Node, Python, Go etc.)
             </li>
             <li class="fragment fade-up">
-              Ability to run containers (new arrival)
+              Ability to run containerized applications (Docker images)
             </li>
           </ul>
+        </section>
+
+        <!-- Where Serverless really shines -->
+        <section>
+          <section>
+            <h2>Applications of serverless</h2>
+          </section>
+
+          <section>
+            Cron Jobs and One-off functions
+            <img
+              class="fragment fade-up"
+              src="./assets/cron-job.png"
+              alt="Running Lambda functions on a give schedule"
+            />
+          </section>
+
+          <section>
+            A low latency API Server
+            <img
+              class="fragment fade-up"
+              src="./assets/api.jpeg"
+              alt="A basic server with Lambda and API Gateway"
+            />
+          </section>
+        </section>
+
+        <!-- What is AWS Lambda -->
+        <section>
+          <section>
+            <h2>AWS Lambda 🚀</h2>
+            <img
+              src="./assets/lambda.png"
+              alt="Applications of the lamda function"
+            />
+          </section>
+
+          <section data-auto-animate>
+            <h2 data-id="code-title">A simple lambda function</h2>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs" data-trim data-line-numbers><script type="text/template">
+            exports.handler = async (event, context) => {
+              console.log("EVENT:", JSON.stringify(event, null, 2))
+              return 'Hello, World!'
+            }
+          </script></code>
+          </pre>
+
+            <pre
+              data-id="code-animation"
+            ><code class="hljs" data-trim data-line-numbers><script type="text/template">
+            def handler(event, context):
+              message = f"Hello {event['name']}"
+              return { 'message' : message }
+          </script></code>
+          </pre>
+          </section>
+        </section>
+
+        <!-- demo -->
+        <section>
+          <h2>Demo time ⚒️</h2>
+        </section>
+
+        <!-- points to note while working with Lambda -->
+        <section>
+          <section>
+            <h2>Some points to note ✏️</h2>
+            <ul>
+              <li class="fragment fade-up">
+                Lambda functions have a time limit
+              </li>
+              <li class="fragment fade-up">
+                <a
+                  href="https://www.theregister.com/2020/12/10/google_cloud_over_run/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Verify your standalone lambda code carefully</a
+                >
+              </li>
+              <li class="fragment fade-up">
+                It's not advisable to store anything on Lambda
+              </li>
+              <li class="fragment fade-up">
+                Store anything that can be re-used in further invocations
+                outside the handler
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Resources</h2>
+            <ul>
+              <li>
+                <a
+                  href="https://deepdive.hashnode.dev/how-aws-lambda-works-under-the-hood"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >How Lambda works under the hood</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Lambda Execution Environment explained</a
+                >
+              </li>
+            </ul>
+          </section>
         </section>
 
         <!-- the end -->
