@@ -13,5 +13,6 @@
 ## Commands
 
 - Run `yarn dev` or `npm run dev` to start server locally
+- Run `yarn slides` or `npm run slides` to view the slides locally
 - Run `yarn deploy` or `npm run deploy` to deploy to AWS Lambda
 - Run `yarn sls remove` to delete the project from AWS

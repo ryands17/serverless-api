@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "sls offline",
+    "slides": "serve -s slides",
     "deploy": "sls deploy"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
   "devDependencies": {
     "eslint": "^7.16.0",
     "prettier": "^2.2.1",
+    "serve": "^11.3.2",
     "serverless": "^2.16.1",
     "serverless-offline": "^6.8.0"
   },

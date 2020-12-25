@@ -28,7 +28,6 @@ functions:
 
 package:
   exclude:
-    - 'yarn.lock'
-    - 'package.json'
-    - '.yarnclean'
-    - '.gitignore'
+    - '**'
+    - '!node_modules/**/*'
+    - '!src/*'
