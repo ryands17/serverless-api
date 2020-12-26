@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "dev": "sls offline",
-    "slides": "serve -s slides",
-    "deploy": "sls deploy"
+    "deploy": "sls deploy",
+    "slides": "serve -s slides"
   },
   "keywords": [],
   "author": "Ryan",
   "license": "ISC",
+  "dependencies": {
+    "fastify": "^3.9.2",
+    "serverless-http": "2.6.0"
+  },
   "devDependencies": {
     "eslint": "^7.16.0",
     "prettier": "^2.2.1",
@@ -21,9 +25,5 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
-  },
-  "dependencies": {
-    "fastify": "^3.9.2",
-    "serverless-http": "2.6.0"
   }
 }
