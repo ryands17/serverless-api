@@ -24,7 +24,7 @@
     <div class="reveal">
       <div class="slides">
         <!-- talk slide -->
-        <section><h1>Using Prisma with AWS Lambda</h1></section>
+        <section><h1>Deploying Prisma with AWS Lambda</h1></section>
 
         <!-- intro -->
         <section>
@@ -36,162 +36,127 @@
         <section>
           <h2>Topics for today</h2>
           <ul>
-            <li class="fragment fade-up">The previous talk</li>
+            <li class="fragment fade-up">A bit about the previous talk</li>
             <li class="fragment fade-up">What is Prisma</li>
-            <li class="fragment fade-up">Basic examples</li>
+            <li class="fragment fade-up">Basic snippets</li>
             <li class="fragment fade-up">
               Demo of Prisma interacting with a database
             </li>
           </ul>
         </section>
 
-        <!-- servers and the cloud -->
+        <!-- A bit about the previous talk -->
         <section>
-          <section>
-            <h2>Where we started</h2>
-            <p class="fragment fade-up">On-Premise servers</p>
-            <p class="fragment fade-up">Home or Office</p>
-          </section>
-
-          <section>
-            <h2>What actually is the Cloud</h2>
-            <img
-              class="fragment fade-up"
-              src="./assets/what-is-the-cloud.jpg"
-              alt="What is the cloud actually?"
-            />
-          </section>
-
-          <section>
-            <h2>Traditional Servers on the Cloud</h2>
-            <ul>
-              <li class="fragment fade-up">
-                Allow you to choose the server (size, memory, disk space etc.)
-              </li>
-              <li class="fragment fade-up">
-                Pay for the amount of hours it's running (even if not being
-                used)
-              </li>
-              <li class="fragment fade-up">AWS EC2, DigitalOcean, Heroku</li>
-              <li class="fragment fade-up">
-                Can be scaled up in case of higher requests
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>Selecting an instance (AWS EC2)</h2>
-            <img
-              src="./assets/choosing-an-instance.png"
-              alt="Choosing the instance type"
-            />
-          </section>
-        </section>
-
-        <!-- What is serverless -->
-        <section>
-          <section>
-            <h2>Enter Serverless 😎</h2>
-            <ul>
-              <li class="fragment fade-up">
-                A way to run your code without manually provisioning servers
-              </li>
-              <li class="fragment fade-up">
-                Your main focus is shipping code and not server management
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>AWS Lambda</h2>
-            <blockquote
-              class="fragment fade-up"
-              cite="https://aws.amazon.com/lambda/"
-            >
-              &ldquo;AWS Lambda is a serverless compute service that lets you
-              run code without provisioning or managing servers, creating
-              workload-aware cluster scaling logic, maintaining event
-              integrations, or managing runtimes. With Lambda, you can run code
-              for virtually any type of application or backend service - all
-              with zero administration&rdquo;
-            </blockquote>
-          </section>
-        </section>
-
-        <!-- Comparision with traditional servers -->
-        <section>
-          <h2>Comparisions with our old friend</h2>
+          <h2>Recap about Serverless</h2>
           <ul>
-            <li class="fragment fade-up">Deployment is easier</li>
-            <li class="fragment fade-up">Scaling doesn't need effort</li>
             <li class="fragment fade-up">
-              Only pay for the time taken by the function to execute
-            </li>
-            <li class="fragment fade-up">Automated security</li>
-            <li class="fragment fade-up">
-              Support for all famous runtimes (Node, Python, Go etc.)
+              A way to run your code without manually provisioning servers
             </li>
             <li class="fragment fade-up">
-              Ability to run containerized applications (Docker images)
+              Your main focus is shipping code and not server management
             </li>
+            <li class="fragment fade-up">Deployment and scaling is easier</li>
+            <li class="fragment fade-up">Secure by default</li>
           </ul>
         </section>
 
-        <!-- Where Serverless really shines -->
+        <!-- What is Prisma -->
         <section>
           <section>
-            <h2>Applications of serverless</h2>
-          </section>
-
-          <section>
-            Cron Jobs and One-off functions
-            <img
-              class="fragment fade-up"
-              src="./assets/cron-job.png"
-              alt="Running Lambda functions on a give schedule"
-            />
-          </section>
-
-          <section>
-            A low latency API Server
-            <img
-              class="fragment fade-up"
-              src="./assets/api.jpeg"
-              alt="A basic server with Lambda and API Gateway"
-            />
-          </section>
-        </section>
-
-        <!-- What is AWS Lambda -->
-        <section>
-          <section>
-            <h2>AWS Lambda 🚀</h2>
-            <img
-              src="./assets/lambda.png"
-              alt="Applications of the lamda function"
-            />
+            <h2>Enter Prisma 😎</h2>
+            <ul>
+              <li class="fragment fade-up">
+                An ORM for interacting with your database
+              </li>
+              <li class="fragment fade-up">
+                Easy to define models in a schema format
+              </li>
+              <li class="fragment fade-up">
+                Get the fields exactly as required from the database due to
+                type-safety
+              </li>
+              <li class="fragment fade-up">
+                Currently supports Node.js and Go runtimes
+              </li>
+            </ul>
           </section>
 
           <section data-auto-animate>
-            <h2 data-id="code-title">A simple lambda function</h2>
+            <h2>Defining your schema</h2>
             <pre
               data-id="code-animation"
-            ><code class="hljs" data-trim data-line-numbers><script type="text/template">
-            exports.handler = async (event, context) => {
-              console.log("EVENT:", JSON.stringify(event, null, 2))
-              return 'Hello, World!'
-            }
-          </script></code>
-          </pre>
+              class="groovy"
+            ><code class="hljs" data-trim data-line-numbers style="max-height: 450px;"><script type="text/template">
+                model User {
+                  id      Int      @default(autoincrement()) @id
+                  email   String   @unique
+                  name    String?
+                  posts   Post[]
+                  createdAt DateTime @default(now())
+                  updatedAt DateTime @updatedAt
+                }
 
+                model Post {
+                  id        Int      @default(autoincrement()) @id
+                  title     String
+                  content   String?
+                  published Boolean  @default(false)
+                  author    User     @relation(fields: [authorId], references: [id])
+                  authorId  Int
+                }
+            </script></code>
+            </pre>
+          </section>
+        </section>
+
+        <!-- Basic snippets -->
+        <section>
+          <section>
+            <h2>Basic Prisma snippets</h2>
+          </section>
+
+          <section data-auto-animate>
+            <h2>Fetching users</h2>
             <pre
               data-id="code-animation"
-            ><code class="hljs" data-trim data-line-numbers><script type="text/template">
-            def handler(event, context):
-              message = f"Hello {event['name']}"
-              return { 'message' : message }
-          </script></code>
-          </pre>
+              class="javascript"
+            ><code class="hljs" data-trim data-line-numbers style="max-height: 450px;"><script type="text/template">
+                const usersWithTheirPosts = await prisma.user.findMany({
+                  include: { posts: true }
+                })
+            </script></code>
+            </pre>
+          </section>
+
+          <section data-auto-animate>
+            <h2>Updating a user</h2>
+            <pre
+              data-id="code-animation"
+              class="javascript"
+            ><code class="hljs" data-trim data-line-numbers style="max-height: 450px;"><script type="text/template">
+                const updatedUser = await prisma.user.update({
+                  where: { id: 1 },
+                  data: { name: 'new name' }
+                })
+            </script></code>
+            </pre>
+          </section>
+
+          <section data-auto-animate>
+            <h2>Creating a Post and assigning an author</h2>
+            <pre
+              data-id="code-animation"
+              class="javascript"
+            ><code class="hljs" data-trim data-line-numbers style="max-height: 450px;"><script type="text/template">
+                const newPost = await prisma.post.create({
+                  data: {
+                    title: 'Title',
+                    content: 'Content',
+                    authorId: 1
+                  }
+                })
+            </script></code>
+            </pre>
           </section>
         </section>
 
@@ -200,28 +165,20 @@
           <h2>Demo time ⚒️</h2>
         </section>
 
-        <!-- points to note while working with Lambda -->
+        <!-- points to note while working with Prisma + Lambda -->
         <section>
           <section>
             <h2>Some points to note ✏️</h2>
             <ul>
               <li class="fragment fade-up">
-                Lambda functions have a time limit
+                Always initialize Prisma outside the Lambda function
               </li>
               <li class="fragment fade-up">
-                <a
-                  href="https://www.theregister.com/2020/12/10/google_cloud_over_run/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Verify your standalone lambda code carefully</a
-                >
+                Load test your application before Production deployment
               </li>
               <li class="fragment fade-up">
-                It's not advisable to store anything on Lambda
-              </li>
-              <li class="fragment fade-up">
-                Declare any variables, functions etc. that can be re-used in
-                further invocations outside the handler
+                Use a database load balancer if required (AWS RDS Proxy,
+                PgBouncer)
               </li>
             </ul>
           </section>
@@ -231,26 +188,18 @@
             <ul>
               <li>
                 <a
-                  href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html"
+                  href="https://www.prisma.io/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >Installing the AWS CLI</a
+                  >Prisma Docs</a
                 >
               </li>
               <li>
                 <a
-                  href="https://deepdive.hashnode.dev/how-aws-lambda-works-under-the-hood"
+                  href="https://github.com/prisma/prisma-examples/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >How Lambda works under the hood</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Lambda Execution Environment explained</a
+                  >Examples</a
                 >
               </li>
             </ul>

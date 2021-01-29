@@ -31,4 +31,8 @@ app.get('/user', async (req, res) => {
   }
 })
 
-exports.api = serverless(app)
+exports.api = serverless(app, {
+  request(request, event, context) {
+    context.callbackWaitsForEmptyEventLoop = false
+  },
+})
