@@ -4,13 +4,14 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
-  profile: ${opt:profile, 'default'}
-  region: us-east-1
+  profile: ${opt:profile, 'prisma_demo'}
+  region: us-east-2
   memorySize: 512
   apiGateway:
     shouldStartNameWithService: true
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-offline
 
 functions:
@@ -31,3 +32,9 @@ package:
     - '**'
     - '!node_modules/**/*'
     - '!src/*'
+    - '*.eslint'
+    - '*.env'
+    - 'node_modules/@prisma/cli/*-darwin'
+    - 'node_modules/@prisma/cli/query-engine-*'
+    - 'node_modules/.prisma/client/*-darwin'
+    - 'node_modules/@prisma/engines/**'

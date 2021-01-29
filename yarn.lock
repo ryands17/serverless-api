@@ -367,6 +367,30 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
+"@prisma/cli@2.15.0":
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/@prisma/cli/-/cli-2.15.0.tgz#a979a67dbd606a966cf475686170128562590713"
+  integrity sha512-sF2mgn5oH5fL9/CKxS0tqojf0rK2BKODlEUqL+2s3YZqvJRSt4iFpiyjgajyd0wyTyv1k9LDHTV0yOD1mXDBsA==
+  dependencies:
+    "@prisma/engines" "2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54"
+
+"@prisma/client@2.15.0":
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.15.0.tgz#41ee22c60778b54aec0f6d4832c2d35fbf9eb423"
+  integrity sha512-3j4OoLpAGF104KAenUFJM9sU2+4jRP+RlrlYssBHkwBf+/5+2ihSpcmFiWIw1vXNRdmZtivjwhjcVtmjZPJktw==
+  dependencies:
+    "@prisma/engines-version" "2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54"
+
+"@prisma/engines-version@2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54":
+  version "2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54"
+  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54.tgz#d9c887bc8f30d1f107c9021b2565a8672d62622d"
+  integrity sha512-KDxk7Zsc9tDoShCE7v+O1SnCUTUkMdfezjbuz9CBvdEBGMtYLgyHaZAO8M038uqy8KjgwV9PzyoLqvVfzfsngg==
+
+"@prisma/engines@2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54":
+  version "2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-2.15.0-25.e51dc3b5a9ee790a07104bec1c9477d51740fe54.tgz#3093ace7c09cf694214727c4e67109f2a2d8855a"
+  integrity sha512-AgPxAWtwYhhTNEEsV4lK63HTe9z0GAGL3ofMr2B0TncACmzi9lhdun9TTNie38Oy/3DLfr71TUHKUpV8QjOKUw==
+
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
@@ -1972,6 +1996,11 @@ dot-qs@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/dot-qs/-/dot-qs-0.2.0.tgz#d36517fe24b7cda61fce7a5026a0024afaf5a439"
   integrity sha1-02UX/iS3zaYfznpQJqACSvr1pDk=
+
+dotenv-expand@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
+  integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
 
 dotenv@^8.2.0:
   version "8.2.0"
@@ -5073,6 +5102,15 @@ serve@^11.3.2:
     compression "1.7.3"
     serve-handler "6.1.3"
     update-check "1.5.2"
+
+serverless-dotenv-plugin@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/serverless-dotenv-plugin/-/serverless-dotenv-plugin-3.1.0.tgz#f1482a5e69b01cc4de8c6439bdd8c134fc923534"
+  integrity sha512-R9Jld4a/hDDd0lHiSq9xQuFlhtfgXqKKmODrYp7115iQ9kgf16SMxZbxJ0Cb9GqL6/4+5GlS42iHxsqv8GxZeQ==
+  dependencies:
+    chalk "^4.1.0"
+    dotenv "^8.2.0"
+    dotenv-expand "^5.1.0"
 
 serverless-http@2.6.0:
   version "2.6.0"

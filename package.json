@@ -12,6 +12,8 @@
   "author": "Ryan",
   "license": "ISC",
   "dependencies": {
+    "@prisma/cli": "2.15.0",
+    "@prisma/client": "2.15.0",
     "fastify": "^3.9.2",
     "serverless-http": "2.6.0"
   },
@@ -20,6 +22,7 @@
     "prettier": "^2.2.1",
     "serve": "^11.3.2",
     "serverless": "^2.16.1",
+    "serverless-dotenv-plugin": "^3.1.0",
     "serverless-offline": "^6.8.0"
   },
   "prettier": {
