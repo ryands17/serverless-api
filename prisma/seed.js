@@ -5,12 +5,12 @@ const prisma = new PrismaClient()
 
 async function main() {
   const user1 = await prisma.user.create({
-    data: { name: 'Alice' },
+    data: {
+      name: 'Random User',
+      posts: { create: { title: 'Post 1' } },
+    },
   })
-  const user2 = await prisma.user.create({
-    data: { name: 'Bob' },
-  })
-  console.log({ user1, user2 })
+  console.log(user1)
 }
 
 main().finally(async () => {

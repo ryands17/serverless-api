@@ -19,7 +19,7 @@ app.get('/date', (req, res) => {
 
 app.get('/user', async (req, res) => {
   try {
-    const users = await prisma.user.findMany()
+    const users = await prisma.user.findMany({ include: { posts: true } })
     res.send({
       data: { users },
     })
